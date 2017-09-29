@@ -9,25 +9,33 @@ class GlossariesProvider
   excludeLowerPriority: true
 
   constructor: ->
-    @showIcon = atom.config.get('autocomplete-plus.defaultProvider') is 'Symbol'
     @manager = new LabelManager()
     @manager.updateDatabase()
 
   getSuggestions: ({editor, bufferPosition}) ->
     prefix = @getPrefix(editor, bufferPosition)
     return unless prefix?.length
-    new Promise (resolve) ->
-      suggestion =
-        text: 'someText'
-        replacementPrefix: prefix
-        leftLabel: 'list'
-        type: 'value'
-        description: 'the description'
-      resolve([suggestion])
+    new Promise (resolve) =>
+      results = @manager.searchForPrefixInDatabase(prefix)
+      suggestions = []
+      for result in results
+        suggestion = @suggestionForResult(result, prefix)
+        suggestions.push suggestion
+      resolve(suggestions)
+
+  suggestionForResult: (result, prefix) ->
+    suggestion =
+      text: result.label
+      replacementPrefix: prefix
+      rightLabel: result.text
+      type: result.type
+      description: result.description
+
 
   onDidInsertSuggestion: ({editor, triggerPosition, suggestion}) ->
 
   dispose: ->
+    @manager = []
 
   getPrefix: (editor, bufferPosition) ->
 
@@ -46,29 +54,3 @@ class GlossariesProvider
 
     # Match the regex to the line, and return the match
     line.match(regex)?[4] or ''
-
-
-  findSuggestionsForPrefix: (prefix) ->
-    suggestions = []
-    for snippetPrefix, snippet of snippets
-      continue unless snippet and snippetPrefix and prefix and firstCharsEqual(snippetPrefix, prefix)
-      suggestions.push
-        iconHTML: if @showIcon then undefined else false
-        type: 'snippet'
-        text: snippet.prefix
-        replacementPrefix: prefix
-        rightLabel: snippet.name
-        rightLabelHTML: snippet.rightLabelHTML
-        leftLabel: snippet.leftLabel
-        leftLabelHTML: snippet.leftLabelHTML
-        description: snippet.description
-        descriptionMoreURL: snippet.descriptionMoreURL
-
-    suggestions.sort(ascendingPrefixComparator)
-    suggestions
-
-
-ascendingPrefixComparator = (a, b) -> a.text.localeCompare(b.text)
-
-firstCharsEqual = (str1, str2) ->
-  str1[0].toLowerCase() is str2[0].toLowerCase()

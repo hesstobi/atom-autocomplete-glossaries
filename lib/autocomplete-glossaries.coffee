@@ -8,7 +8,6 @@ module.exports =
 
   deactivate: ->
     @provider = null
-    @manager = null
 
   provide: ->
     unless @provider?

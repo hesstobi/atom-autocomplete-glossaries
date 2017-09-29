@@ -1,20 +1,20 @@
 {watchPath} =  require 'atom'
 {CompositeDisposable} = require 'atom'
 fs = require 'fs'
-fuse = require 'fuse'
-
+Fuse = require 'fuse.js'
+glob = require 'glob'
+path = require 'path'
 
 module.exports =
 class LabelManager
-  @fuseOptions =
+  fuseOptions =
     shouldSort: true,
     threshold: 0.6,
     location: 0,
     distance: 100,
     maxPatternLength: 32,
     minMatchCharLength: 1,
-    keys:
-      "label"
+    keys: ["label"]
 
 
 
@@ -23,12 +23,12 @@ class LabelManager
 
   constructor: ->
     @disposables = new CompositeDisposable
-    @databaseFiles = ['U:\\Documents\\Dissertation\\Dokument\\DissersationHess.glsdefs']
+    @databaseFiles = glob.sync(path.join(atom.project.getPaths()[0], '*.glsdefs'))
     @database = []
-    @fuse = new Fuse(@database,@fuseOptions)
+    @fuse = new Fuse(@database,fuseOptions)
 
   searchForPrefixInDatabase: (prefix) ->
-    fuse.search(prefix)
+    @fuse.search(prefix)
 
   updateDatabase: ->
     @database = []
@@ -54,8 +54,7 @@ class LabelManager
             description: match[4]
           @database.push entry
           match =  regex.exec data
-        console.log(@database)
-        @fuse = new Fuse(@database,@fuseOptions)
+        @fuse = new Fuse(@database,fuseOptions)
 
   registerForDatabaseChanges: ->
     watcher = atom.project.onDidChangeFiles  (events) ->

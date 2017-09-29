@@ -3,14 +3,15 @@
   "main": "./lib/autocomplete-glossaries",
   "version": "0.0.0",
   "description": "Autocomplete Plus Support for Glossaries entries",
-  "keywords": [
-  ],
+  "keywords": [],
   "repository": "",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "fuse.js": "^3.1.0",
+    "glob": "^7.1.2"
   },
   "providedServices": {
     "autocomplete.provider": {
