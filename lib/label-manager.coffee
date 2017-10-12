@@ -16,16 +16,24 @@ class LabelManager
     minMatchCharLength: 1,
     keys: ["label"]
 
-
-
   destroy: () ->
     @disposables.dispose()
 
   constructor: ->
     @disposables = new CompositeDisposable
-    @databaseFiles = glob.sync(path.join(atom.project.getPaths()[0], '*.glsdefs'))
+    @databaseFiles = new Set()
     @database = []
     @fuse = new Fuse(@database,fuseOptions)
+
+    @addDatabaseFiles()
+    @registerForDatabaseChanges()
+    @updateDatabase()
+
+  addDatabaseFiles: ->
+    for ppath in atom.project.getPaths()
+      files = glob.sync(path.join(ppath, '*.glsdefs'))
+      for file in files
+        @databaseFiles.add(file)
 
   searchForPrefixInDatabase: (prefix) ->
     @fuse.search(prefix)
@@ -42,7 +50,7 @@ class LabelManager
             description={(.*?)},% # description
             ///g
 
-    for file in @databaseFiles
+    @databaseFiles.forEach (file) =>
       fs.readFile file, 'utf8', (err, data) =>
         throw err if  err
         match = regex.exec data
@@ -57,14 +65,16 @@ class LabelManager
         @fuse = new Fuse(@database,fuseOptions)
 
   registerForDatabaseChanges: ->
-    watcher = atom.project.onDidChangeFiles  (events) ->
-      console.log(events)
+    watcher = atom.project.onDidChangeFiles  (events) =>
+      events = events.filter (e) -> /glsdefs$/.test(e["path"])
+      for e in events
+        switch e.action
+          when "modified"
+            @databaseFiles.add(e.path)
+          when "created"
+            @databaseFiles.add(e.path)
+          when "deleted"
+            @databaseFiles.delete(e.path)
+      if events.length > 0
+        @updateDatabase()
     @disposables.add watcher
-
-#           {[
-#   {
-#     "action": "", // one of "modified", "created", "deleted", or "renamed"
-#     "oldPath": "", // undefined unless type is "renamed," in which case it holds the former name of the entry
-#     "path": "" // absolute path to the changed entry
-#   }
-# ]}
