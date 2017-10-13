@@ -27,9 +27,10 @@ class GlossariesProvider
       text: result.label
       replacementPrefix: prefix
       rightLabel: result.text
+      leftLabel: result.type
       type: result.type
       description: result.description
-
+      iconHTML: '<i class="icon-bookmark"></i>'
 
   onDidInsertSuggestion: ({editor, triggerPosition, suggestion}) ->
 
