@@ -22,8 +22,8 @@ class LabelManager
   constructor: ->
     @disposables = new CompositeDisposable
     @databaseFiles = new Set()
-    @database = []
-    @fuse = new Fuse(@database,fuseOptions)
+    @database = {}
+    @fuse = new Fuse(Object.values(@database),fuseOptions)
 
     @addDatabaseFiles()
     @registerForDatabaseChanges()
@@ -39,7 +39,7 @@ class LabelManager
     @fuse.search(prefix)
 
   updateDatabase: ->
-    @database = []
+    @database = {}
     regex = ///
             \\gls@defglossaryentry{([\w:-]+)} #label
             [\w\W]*? # eveything
@@ -60,9 +60,9 @@ class LabelManager
             type: match[2]
             text: match[3]
             description: match[4]
-          @database.push entry
+          @database[match[1]] = entry
           match =  regex.exec data
-        @fuse = new Fuse(@database,fuseOptions)
+        @fuse = new Fuse(Object.values(@database),fuseOptions)
 
   registerForDatabaseChanges: ->
     watcher = atom.project.onDidChangeFiles  (events) =>
