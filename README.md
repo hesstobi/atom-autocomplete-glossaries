@@ -4,7 +4,7 @@ Add labels of your glossaries of your latex document to autocomplete+ suggestion
 ![A screenshot of your package](https://user-images.githubusercontent.com/929957/31552778-ac4387de-b038-11e7-8176-609e37f0dfea.PNG)
 
 ## Features
-* complete labels for [glossaries package](https://ctan.org/pkg/glossaries?lang=de) in latex
+* complete labels for [glossaries package](https://ctan.org/pkg/glossaries) in latex
 * custom prefixes for autocomplete
 * displays type, text and description of glossaries entry
 
@@ -13,7 +13,7 @@ Add labels of your glossaries of your latex document to autocomplete+ suggestion
 > The glossaries entries definition has to be done in the document environment.
 
 For defining acronyms and symbols for Latex documents the [glossaries
-package](https://ctan.org/pkg/glossaries?lang=de) is a powerful solution. If
+package](https://ctan.org/pkg/glossaries) is a powerful solution. If
 there are a lot of entries defined, it gets hard to remember all their labels.
 Therefor this package is created. But, to create a database of all defined
 entries is a major issue, because there are several commands with different
