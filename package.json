@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "description": "Autocomplete Plus Support for Glossaries entries",
   "keywords": [],
-  "repository": "",
+  "repository": "https://github.com/hesstobi/atom-autocomplete-glossaries.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.21.0 <2.0.0"
