@@ -33,7 +33,7 @@ class LabelManager
     for ppath in atom.project.getPaths()
       files = glob.sync(path.join(ppath, '*.glsdefs'))
       for file in files
-        @databaseFiles.add(file)
+        @databaseFiles.add(path.normalize(file))
 
   searchForPrefixInDatabase: (prefix) ->
     @fuse.search(prefix)
