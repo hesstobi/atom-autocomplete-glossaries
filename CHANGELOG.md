@@ -1,3 +1,3 @@
 ## 0.1.0 - First Release
-* Every feature added
-* Every bug fixed
+* Suggestion of glossaries entries based on `.glsdefs` file
+* Config Option for setting custom command prefixes for suggestions
