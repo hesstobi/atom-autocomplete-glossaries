@@ -6,7 +6,7 @@ class GlossariesProvider
   disableForSelector: '.comment'
   inclusionPriority: 2
   suggestionPriority: 2
-  excludeLowerPriority: true
+  excludeLowerPriority: false
 
   constructor: ->
     @manager = new LabelManager()
