@@ -1,3 +1,6 @@
+## 0.1.2
+* Fix: Again suggestions from other packages disabled.
+
 ## 0.1.1
 * Fix: Suggestions from other packages disabled.
 

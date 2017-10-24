@@ -4,9 +4,9 @@ module.exports =
 class GlossariesProvider
   selector: '.text.tex.latex'
   disableForSelector: '.comment'
-  inclusionPriority: 2
-  suggestionPriority: 2
-  excludeLowerPriority: false
+  #inclusionPriority: 2
+  #suggestionPriority: 2
+  #excludeLowerPriority: false
 
   constructor: ->
     @manager = new LabelManager()
