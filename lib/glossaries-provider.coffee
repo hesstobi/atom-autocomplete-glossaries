@@ -48,7 +48,7 @@ class GlossariesProvider
             (\<[\\\w-]*\>)? # optional paramters
             (\[[\\\w-]*\])? # optional paramters
             {([\w-]+)$ # macthing the prefix
-            ///
+            ///i
 
     # Get the text for the line up to the triggered buffer position
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
