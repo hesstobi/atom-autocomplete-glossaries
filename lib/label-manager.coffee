@@ -1,6 +1,7 @@
 {watchPath} =  require 'atom'
 {CompositeDisposable} = require 'atom'
-fs = require 'fs'
+promisify = require "promisify-node"
+fs = promisify('fs')
 Fuse = require 'fuse.js'
 glob = require 'glob'
 path = require 'path'
@@ -25,9 +26,17 @@ class LabelManager
     @database = {}
     @fuse = new Fuse(Object.values(@database),fuseOptions)
 
-    @addDatabaseFiles()
-    @registerForDatabaseChanges()
-    @updateDatabase()
+  initialize: ->
+    return new Promise( (resolve, reject) =>
+      @addDatabaseFiles()
+      @registerForDatabaseChanges()
+      @updateDatabase().then( (db) ->
+        resolve()
+        ).catch((error) ->
+          atom.notifications.addWarning(error)
+          reject(error)
+        )
+    )
 
   addDatabaseFiles: ->
     for ppath in atom.project.getPaths()
@@ -39,7 +48,6 @@ class LabelManager
     @fuse.search(prefix)
 
   updateDatabase: ->
-    @database = {}
     regex = ///
             \\gls@defglossaryentry{([\w:-]+)} #label
             [\w\W]*? # eveything
@@ -49,20 +57,32 @@ class LabelManager
             [\w\W]*? # eveything
             description={(.*?)},% # description
             ///g
-
-    @databaseFiles.forEach (file) =>
-      fs.readFile file, 'utf8', (err, data) =>
-        throw err if  err
-        match = regex.exec data
-        while match
-          entry =
-            label: match[1]
-            type: match[2]
-            text: match[3]
-            description: match[4]
-          @database[match[1]] = entry
-          match =  regex.exec data
+    # Return a Promise with updated Database
+    return new Promise((resolve, reject) =>
+      # Get Promise for each File in the Database
+      promises = []
+      @databaseFiles.forEach (file) ->
+        promises.push(fs.readFile(file, 'utf8'))
+      # Parse the Data and resolve the Promise when all files
+      # are parsed
+      Promise.all(promises).then( (dataArray) =>
+        @database = {}
+        dataArray.forEach (data) =>
+          match = regex.exec data
+          while match
+            entry =
+              label: match[1]
+              type: match[2]
+              text: match[3]
+              description: match[4]
+            @database[match[1]] = entry
+            match =  regex.exec data
         @fuse = new Fuse(Object.values(@database),fuseOptions)
+        resolve(@database)
+      ).catch( (error) ->
+        reject(error)
+      )
+    )
 
   registerForDatabaseChanges: ->
     watcher = atom.project.onDidChangeFiles  (events) =>

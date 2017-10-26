@@ -10,6 +10,7 @@ class GlossariesProvider
 
   constructor: ->
     @manager = new LabelManager()
+    @manager.initialize()
 
   getSuggestions: ({editor, bufferPosition}) ->
     prefix = @getPrefix(editor, bufferPosition)
