@@ -1,0 +1,102 @@
+\ifglsentryexists{BHKW}{}%
+{%
+\gls@defglossaryentry{BHKW}%
+{%
+name={\acronymfont {\glsentryshort {BHKW}}},%
+sort={BHKW},%
+type={acronym},%
+first={BHKW},%
+firstplural={BHKW\glspluralsuffix },%
+text={BHKW},%
+plural={BHKW\glspluralsuffix },%
+description={Blockheizkraftwerk},%
+descriptionplural={Blockheizkraftwerk},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Blockheizkraftwerk},%
+longplural={Blockheizkraftwerk\acrpluralsuffix },%
+short={BHKW},%
+shortplural={BHKW\acrpluralsuffix },%
+counter={\glscounter },%
+parent={},%
+bez={},%
+dsub={},%
+dsup={},%
+acronymtranslate={},%
+%
+}%
+}%
+\ifglsentryexists{KWK}{}%
+{%
+\gls@defglossaryentry{KWK}%
+{%
+name={\acronymfont {\glsentryshort {KWK}}},%
+sort={KWK},%
+type={acronym},%
+first={KWK},%
+firstplural={KWK\glspluralsuffix },%
+text={KWK},%
+plural={KWK\glspluralsuffix },%
+description={Kraft-Wärme-Kopplung},%
+descriptionplural={Kraft-Wärme-Kopplung},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Kraft-Wärme-Kopplung},%
+longplural={Kraft-Wärme-Kopplung\acrpluralsuffix },%
+short={KWK},%
+shortplural={KWK\acrpluralsuffix },%
+counter={\glscounter },%
+parent={},%
+bez={},%
+dsub={},%
+dsup={},%
+acronymtranslate={},%
+%
+}%
+}%
+\ifglsentryexists{muBHKW}{}%
+{%
+\gls@defglossaryentry{muBHKW}%
+{%
+name={\acronymfont {\glsentryshort {muBHKW}}},%
+sort={\(\mu \)BHKW},%
+type={acronym},%
+first={\(\mu \)BHKW},%
+firstplural={\(\mu \)BHKW\glspluralsuffix },%
+text={\(\mu \)BHKW},%
+plural={\(\mu \)BHKW\glspluralsuffix },%
+description={Mikro-Blockheizkraftwerk},%
+descriptionplural={Mikro-Blockheizkraftwerk},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Mikro-Blockheizkraftwerk},%
+longplural={Mikro-Blockheizkraftwerk\acrpluralsuffix },%
+short={\(\mu \)BHKW},%
+shortplural={\(\mu \)BHKW\acrpluralsuffix },%
+counter={\glscounter },%
+parent={},%
+bez={},%
+dsub={},%
+dsup={},%
+acronymtranslate={},%
+%
+}%
+}%
