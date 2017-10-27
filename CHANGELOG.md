@@ -1,3 +1,7 @@
+## 0.2.0
+* adding Test to the packages
+* providing database info command to show number of entries
+
 ## 0.1.3
 * Fix: Priorities Settings
 
