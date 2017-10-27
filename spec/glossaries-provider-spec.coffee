@@ -22,7 +22,7 @@ describe "Glossaries Autocompletions", ->
 
   beforeEach ->
     waitsForPromise -> atom.packages.activatePackage('autocomplete-glossaries')
-    waitsForPromise -> atom.packages.activatePackage('language-latex')
+    #waitsForPromise -> atom.packages.activatePackage('language-latex')
 
     runs ->
       provider = atom.packages.getActivePackage('autocomplete-glossaries').mainModule.provide()
