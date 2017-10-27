@@ -1,5 +1,12 @@
 # autocomplete-glossaries package
 
+[![Build Status](https://travis-ci.org/hesstobi/atom-autocomplete-glossaries.svg?branch=master)](https://travis-ci.org/hesstobi/atom-autocomplete-glossaries)
+[![apm](https://img.shields.io/apm/v/autocomplete-glossaries.svg)](https://atom.io/packages/autocomplete-glossaries)
+[![apm](https://img.shields.io/apm/dm/autocomplete-glossaries.svg)](https://atom.io/packages/autocomplete-glossaries)
+[![GitHub license](https://img.shields.io/github/license/hesstobi/atom-autocomplete-glossaries.svg)](https://github.com/hesstobi/atom-autocomplete-glossaries/blob/master/LICENSE.md)
+
+
+
 Add labels of your glossaries of your latex document to autocomplete+ suggestions
 ![A screenshot of your package](https://user-images.githubusercontent.com/929957/31552778-ac4387de-b038-11e7-8176-609e37f0dfea.PNG)
 
