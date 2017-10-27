@@ -6,9 +6,9 @@
 [![GitHub license](https://img.shields.io/github/license/hesstobi/atom-autocomplete-glossaries.svg)](https://github.com/hesstobi/atom-autocomplete-glossaries/blob/master/LICENSE.md)
 
 
+Add labels of your defined glossaries entires in your latex document to autocomplete+ suggestions
 
-Add labels of your glossaries of your latex document to autocomplete+ suggestions
-![A screenshot of your package](https://user-images.githubusercontent.com/929957/31552778-ac4387de-b038-11e7-8176-609e37f0dfea.PNG)
+![A screenshot of your package](https://user-images.githubusercontent.com/929957/32111299-64c4a3b8-bb3a-11e7-89ef-ca91cd37881b.gif)
 
 ## Features
 * complete labels for [glossaries package](https://ctan.org/pkg/glossaries) in latex
