@@ -1,11 +1,10 @@
 # autocomplete-glossaries package
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/hesstobi/atom-autocomplete-glossaries.svg)](https://greenkeeper.io/)
-
 [![Build Status](https://travis-ci.org/hesstobi/atom-autocomplete-glossaries.svg?branch=master)](https://travis-ci.org/hesstobi/atom-autocomplete-glossaries)
 [![apm](https://img.shields.io/apm/v/autocomplete-glossaries.svg)](https://atom.io/packages/autocomplete-glossaries)
 [![apm](https://img.shields.io/apm/dm/autocomplete-glossaries.svg)](https://atom.io/packages/autocomplete-glossaries)
 [![GitHub license](https://img.shields.io/github/license/hesstobi/atom-autocomplete-glossaries.svg)](https://github.com/hesstobi/atom-autocomplete-glossaries/blob/master/LICENSE.md)
+[![Greenkeeper badge](https://badges.greenkeeper.io/hesstobi/atom-autocomplete-glossaries.svg)](https://greenkeeper.io/)
 
 
 Add labels of your defined glossaries entires in your latex document to autocomplete+ suggestions
