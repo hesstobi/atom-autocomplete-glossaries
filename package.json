@@ -3,6 +3,7 @@
   "main": "./lib/autocomplete-glossaries",
   "version": "0.2.0",
   "description": "Autocomplete Plus Support for Glossaries entries",
+  "activationHooks": ["language-latex:grammar-used"],
   "keywords": [],
   "repository": "https://github.com/hesstobi/atom-autocomplete-glossaries.git",
   "license": "MIT",

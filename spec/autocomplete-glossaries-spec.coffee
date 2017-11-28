@@ -2,6 +2,8 @@ describe "Glossaries Autocompletions Package", ->
   {workspaceElement} = []
 
   beforeEach ->
+    atom.packages.triggerActivationHook('language-latex:grammar-used')
+    atom.packages.triggerDeferredActivationHooks()
     workspaceElement = atom.views.getView(atom.workspace)
     waitsForPromise -> atom.packages.activatePackage('autocomplete-glossaries')
 
