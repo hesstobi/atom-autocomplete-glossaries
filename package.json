@@ -1,7 +1,7 @@
 {
   "name": "autocomplete-glossaries",
   "main": "./lib/autocomplete-glossaries",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Autocomplete Plus Support for Glossaries entries",
   "activationHooks": [
     "language-latex:grammar-used"
