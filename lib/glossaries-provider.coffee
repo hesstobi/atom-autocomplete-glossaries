@@ -27,7 +27,7 @@ class GlossariesProvider
     suggestion =
       text: result.label
       replacementPrefix: prefix
-      rightLabel: result.text
+      rightLabel: result.prettyText
       leftLabel: result.type
       type: result.type
       description: result.description

@@ -26,3 +26,6 @@ describe "When the LabelManger gets initialized", ->
   it "can search with prefixes in the database", ->
     result  = manager.searchForPrefixInDatabase('BHKW')
     expect(result[0].label).toEqual('BHKW')
+
+  it "convertes Latex to Unicode", ->
+    expect(manager.database['Spannungswinkel'].prettyText).toEqual('δ')

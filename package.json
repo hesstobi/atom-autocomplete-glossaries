@@ -3,7 +3,9 @@
   "main": "./lib/autocomplete-glossaries",
   "version": "0.2.0",
   "description": "Autocomplete Plus Support for Glossaries entries",
-  "activationHooks": ["language-latex:grammar-used"],
+  "activationHooks": [
+    "language-latex:grammar-used"
+  ],
   "keywords": [],
   "repository": "https://github.com/hesstobi/atom-autocomplete-glossaries.git",
   "license": "MIT",
@@ -13,6 +15,7 @@
   "dependencies": {
     "fuse.js": "^3.1.0",
     "glob": "^7.1.2",
+    "latex-to-unicode-converter": "^0.5.2",
     "promisify-node": "^0.4.0"
   },
   "providedServices": {

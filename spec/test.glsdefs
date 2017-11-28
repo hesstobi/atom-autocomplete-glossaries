@@ -66,19 +66,19 @@ acronymtranslate={},%
 %
 }%
 }%
-\ifglsentryexists{muBHKW}{}%
+\ifglsentryexists{Spannungswinkel}{}%
 {%
-\gls@defglossaryentry{muBHKW}%
+\gls@defglossaryentry{Spannungswinkel}%
 {%
-name={\acronymfont {\glsentryshort {muBHKW}}},%
-sort={\(\mu \)BHKW},%
-type={acronym},%
-first={\(\mu \)BHKW},%
-firstplural={\(\mu \)BHKW\glspluralsuffix },%
-text={\(\mu \)BHKW},%
-plural={\(\mu \)BHKW\glspluralsuffix },%
-description={Mikro-Blockheizkraftwerk},%
-descriptionplural={Mikro-Blockheizkraftwerk},%
+name={\delta },%
+sort={δ},%
+type={symbols},%
+first={\delta },%
+firstplural={\delta \glspluralsuffix },%
+text={\delta },%
+plural={\delta \glspluralsuffix },%
+description={Spannungswinkel},%
+descriptionplural={Spannungswinkel},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -87,10 +87,10 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={Mikro-Blockheizkraftwerk},%
-longplural={Mikro-Blockheizkraftwerk\acrpluralsuffix },%
-short={\(\mu \)BHKW},%
-shortplural={\(\mu \)BHKW\acrpluralsuffix },%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
 counter={\glscounter },%
 parent={},%
 bez={},%
