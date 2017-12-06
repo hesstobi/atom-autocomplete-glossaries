@@ -2,11 +2,10 @@ LabelManager = require('./label-manager')
 
 module.exports =
 class GlossariesProvider
-  selector: '.text.tex.latex'
-  disableForSelector: '.comment'
+  selector: '.meta.glossaries.latex'
   inclusionPriority: 2
   suggestionPriority: 3
-  excludeLowerPriority: false
+  excludeLowerPriority: true
 
   constructor: ->
     @manager = new LabelManager()
@@ -40,18 +39,12 @@ class GlossariesProvider
 
   getPrefix: (editor, bufferPosition) ->
 
-    cmdprefixes = atom.config.get "autocomplete-glossaries.commandPrefixes"
-    cmdprefixes = cmdprefixes.join '|'
     regex = ///
-            \\(#{cmdprefixes}) # group for commands prefixes
-            \w* # command can be followd by suffix
-            (\<[\\\w-]*\>)? # optional paramters
-            (\[[\\\w-]*\])? # optional paramters
             {([\w-]+)$ # macthing the prefix
-            ///i
+            ///
 
     # Get the text for the line up to the triggered buffer position
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
 
     # Match the regex to the line, and return the match
-    line.match(regex)?[4] or ''
+    line.match(regex)?[1] or ''
