@@ -4,7 +4,8 @@
   "version": "0.3.0",
   "description": "Autocomplete Plus Support for Glossaries entries",
   "activationHooks": [
-    "language-latex:grammar-used"
+    "language-latex:grammar-used",
+    "language-latex2e:grammar-used"
   ],
   "keywords": [],
   "repository": "https://github.com/hesstobi/atom-autocomplete-glossaries.git",
