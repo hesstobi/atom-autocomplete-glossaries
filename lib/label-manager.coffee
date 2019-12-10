@@ -5,8 +5,8 @@ fs = promisify('fs')
 Fuse = require 'fuse.js'
 glob = require 'glob'
 path = require 'path'
-latexToUnicodeConverter = require("latex-to-unicode-converter")
-latexParser = require('latex-parser')
+latexToUnicode = require("latex-to-unicode")
+# latexParser = require('latex-parser')
 
 module.exports =
 class LabelManager
@@ -72,8 +72,7 @@ class LabelManager
         dataArray.forEach (data) =>
           match = regex.exec data
           while match
-            prettyText = latexToUnicodeConverter.convertLaTeX({
-              onError: (error, latex) -> latexParser.stringifyLaTeX(latex)}, match[3])
+            prettyText = latexToUnicode(match[3])
             entry =
               label: match[1].trim()
               type: match[2].trim()
